@@ -64,7 +64,7 @@
             <a href="#" class="nav-link dropdown-toggle mr-5" data-toggle="dropdown"><i
                     class="fas fa-user fa-fw"></i></a>
             <div class="dropdown-menu dropdown-menu-right dp-class">
-                <span class="dropdown-item"> <img src="{{Auth::user()->getFirstMediaUrl('avatar', 'thumb')}}"> {{Auth::user()->name}}</span>
+                <span class="dropdown-item"> <img src="{{Auth::user()->getFirstMediaUrl('avatar', 'thumb')}}" alt="profile"> {{Auth::user()->name}}</span>
                 <div class="dropdown-divider"></div>
                 <a href="{{route('user.edit',['id'=>Auth::user()->id])}}"> <span class="dropdown-item updae"><i
                             class="fas fa-user-edit"></i> Update User</span></a>

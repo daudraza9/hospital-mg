@@ -36,6 +36,7 @@ class UserController extends Controller
         }
         if($request->hasFile('avatar') && $request->file('avatar')->isValid())
         {
+            $user->media()->delete();
             $user->addMediaFromRequest('avatar')->toMediaCollection('avatar');
         }
         $user->save();

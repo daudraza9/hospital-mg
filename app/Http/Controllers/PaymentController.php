@@ -131,6 +131,7 @@ class PaymentController extends Controller
         }else{
             $cart[$id]=[
                 'name'=>$product->name,
+                'discription'=>$product->discription,
                 'quantity'=>1,
                 'price'=>$product->price,
                 'image'=>$product->getFirstMediaUrl('image','thumb')
@@ -188,7 +189,7 @@ class PaymentController extends Controller
                 'success_url'=>'http://local.hospital/payment/ecommerceIndex',
                 'cancel_url'=>'http://local.hospital/product/cart',
             ]);
-
+        session()->forget('cart');
         return response()->json(['success'=>true,'message'=>'Payment Made Successfully']);
 
 //        $user->addPaymentMethod($request->stripeToken);

@@ -27,10 +27,11 @@
                                     </div>
                                     <div class="col-sm-9">
                                         <h4 class="nomargin">{{ $details['name'] }}</h4>
+                                        <span>{{ $details['discription'] }}</span>
                                     </div>
                                 </div>
                             </td>
-                            <td data-th="Price">${{ $details['price'] }}</td>
+                            <td data-th="Price">{{ $details['price'] }}</td>
                             <td data-th="Quantity">
                                 <input type="number" value="{{ $details['quantity'] }}"
                                        class="form-control quantity update-cart"/>

@@ -29,6 +29,7 @@ use Laravel\Socialite\Facades\Socialite;
 */
 
 Route::group(['middleware' => ['auth', 'verified']], function () {
+
     Route::get('/index', [DashboardController::class, 'index'])->name('index');
 
     Route::group(['prefix' => 'doctor', 'as' => 'doctor.'], function () {
@@ -128,6 +129,7 @@ Route::group(['middleware' => ['auth', 'verified']], function () {
             Route::get('/patientDatatable',[RoomController::class,'patientDatatable'])->name('patientDatatable');
             Route::post('/delete',[RoomController::class,'deletePatient'])->name('delete');
         });
+
     });
 
     //---Appointment Routes---//
