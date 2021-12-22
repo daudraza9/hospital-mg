@@ -31,6 +31,7 @@ use Laravel\Socialite\Facades\Socialite;
 Route::group(['middleware' => ['auth', 'verified']], function () {
 
     Route::get('/index', [DashboardController::class, 'index'])->name('index');
+    Route::get('/exportCsv',[DashboardController::class,'exportCsv'])->name('exportCsv');
 
     Route::group(['prefix' => 'doctor', 'as' => 'doctor.'], function () {
         Route::get('/', [DoctorController::class, 'index'])->name('index');
