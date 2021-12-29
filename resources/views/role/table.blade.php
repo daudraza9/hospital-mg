@@ -7,10 +7,8 @@
             <thead>
             <tr class="dp-style">
                 <th>Id</th>
-                <th>Name</th>
-                @can(permissions['roleEdit'])
+                <th>Names</th>
                 <th>Action</th>
-                @endcan
             </tr>
             </thead>
         </table>
@@ -36,14 +34,14 @@
                         name: 'name',
                         sortable:false
                     },
-                    @can(permissions['roleEdit'])
+
                     {
                         data: 'action',
                         name: 'action',
                         orderable: false,
                         searchable: true
                     }
-                    @endcan
+
                 ]
             })
         });
