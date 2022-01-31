@@ -40,12 +40,12 @@
     $(document).ready(function () {
 
         $("#input-select-all").on('ifChanged', function (e) {
-            administrationPermissionsSetting($(this));
+            PermissionsSetting($(this));
         });
 
-        administrationPermissionsSetting($('#input-select-all'));
+        PermissionsSetting($('#input-select-all'));
     });
-    function administrationPermissionsSetting(ele) {
+    function PermissionsSetting(ele) {
         @foreach(permissions as $key => $permission)
         if(ele.is(':checked')) {
             @if($role->hasPermissionTo($permission))

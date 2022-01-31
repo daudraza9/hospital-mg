@@ -5,10 +5,10 @@
         <main>
             <div class="container-fluid px-4">
 
-                    <a href="{{route('role.create')}}"> <button class="float-right">Add Role</button></a>
+                    <a href="{{route('role.create')}}"> <button class="">Add Role</button></a>
 
                 hi this is Room index page !!!!!!!1
-{{--                @include('role.table')--}}
+                @include('role.table')
 
             </div>
         </main>
@@ -16,7 +16,6 @@
     </div>
 
 @endsection
-
 @push('scripts')
 
 @endpush

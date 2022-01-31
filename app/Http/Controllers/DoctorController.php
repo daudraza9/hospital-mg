@@ -77,7 +77,15 @@ class DoctorController extends Controller
     public function update(Request $request)
     {
 
-        Validator::make($request->all(), ['first_name' => 'required|regex:/^[a-zA-Z]+$/u|min:3|max:10', 'last_name' => 'required|regex:/^[a-zA-Z]+$/u|min:3|max:10', 'email' => 'required|email|unique:doctors,email,' . $request->id, 'phone' => 'required|min:10|unique:doctors,phone,' . $request->id, 'title' => 'required', 'address' => 'required', 'experience' => 'required'])->validate();
+        Validator::make($request->all(), [
+            'first_name' => 'required|regex:/^[a-zA-Z]+$/u|min:3|max:10',
+            'last_name' => 'required|regex:/^[a-zA-Z]+$/u|min:3|max:10',
+            'email' => 'required|email|unique:doctors,email,' . $request->id,
+            'phone' => 'required|min:10|unique:doctors,phone,' . $request->id,
+            'title' => 'required',
+            'address' => 'required',
+            'experience' => 'required'
+        ])->validate();
 
         $doctor = Doctor::findorfail($request->id);
         $doctor->first_name = $request->first_name;
@@ -157,7 +165,8 @@ class DoctorController extends Controller
 
     public function deletePatient(Request $request)
     {
-        $patient = DoctorPatient::where('doctor_patient.doctor_id', '=', $request->doctor_id)->where('doctor_patient.patient_id', '=', $request->id)->delete();
+        $patient = DoctorPatient::where('doctor_patient.doctor_id', '=', $request->doctor_id)
+            ->where('doctor_patient.patient_id', '=', $request->id)->delete();
         if ($patient) {
             return response()->json(['success' => true, 'message', 'Patient Deleted']);
         } else {

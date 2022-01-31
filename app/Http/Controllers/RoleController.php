@@ -13,7 +13,7 @@ class RoleController extends Controller
     {
         return view('role.index');
     }
-    public function create(Request $request)
+    public function create()
     {
         return view('role.create');
     }
@@ -45,6 +45,7 @@ class RoleController extends Controller
                 ->make(true);
         }
     }
+
     public function delete(Request $request)
     {
         $role = Role::findorfail($request->id);

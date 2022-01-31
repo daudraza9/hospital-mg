@@ -38,7 +38,7 @@
 
                 <a class="nav-link" href="{{route('role.index')}}">
                     <div class="sb-nav-link-icon"><i class="fal fa-tasks"></i></div>
-                    Manage Role  </a>
+                    Manage Roles  </a>
 
                 @can(permissions['addUser'])
                 <a class="nav-link" href="{{route('user.add')}}">

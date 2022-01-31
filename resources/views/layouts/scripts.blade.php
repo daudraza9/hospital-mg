@@ -28,7 +28,7 @@
 <script src="{{asset('assets/js/scripts.js')}}"></script>
 <script src="https://releases.transloadit.com/uppy/v2.2.1/uppy.min.js"></script>
 <script type="text/javascript" src="{{asset('assets/js/select2.min.js')}}"></script>
-
+<script src="{{asset('assets/vendor/js/forms/icheck/icheck.min.js')}}" type="text/javascript"></script>
 @include('layouts.common')
 @stack('scripts')
 

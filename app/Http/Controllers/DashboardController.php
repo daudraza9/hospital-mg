@@ -63,4 +63,8 @@ class DashboardController extends Controller
 
         return response()->stream($callback, 200, $headers);
     }
+
+    public function test(){
+        dd('Hello');
+    }
 }

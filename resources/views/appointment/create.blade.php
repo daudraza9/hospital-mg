@@ -112,7 +112,7 @@
                             window.location = '{{route('appointment.index')}}';
                         } else {
                             console.log(response.error);
-                            if (response.success == NULL) {
+                            if (response.success === NULL) {
                                 printErrorMsg(['Something Went Wrong, please Reload or try Again Later!']);
                             } else {
                                 printErrorMsg([response.message]);

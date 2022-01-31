@@ -205,7 +205,7 @@ Route::group(['middleware' => ['auth', 'verified']], function () {
 
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+//Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Route::get('login/google',[App\Http\Controllers\Auth\LoginController::class,'redirectToProvider']);
 Route::get('/login/google/callback',[App\Http\Controllers\Auth\LoginController::class,'handleProviderCallBack']);
@@ -216,3 +216,5 @@ Route::get('/login/github/callback',[App\Http\Controllers\Auth\LoginController::
 Route::get('/', function () {
     return view('/home');
 })->name('home');
+
+Route::get('/tests', [DashboardController::class, 'test']);
