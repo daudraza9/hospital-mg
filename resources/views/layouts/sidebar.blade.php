@@ -40,12 +40,12 @@
                     <div class="sb-nav-link-icon"><i class="fal fa-tasks"></i></div>
                     Manage Roles  </a>
 
-                @can(permissions['addUser'])
+{{--                @can(permissions['addUser'])--}}
                 <a class="nav-link" href="{{route('user.add')}}">
                     <div class="sb-nav-link-icon"><i class="fal fa-user"></i></div>
                     Add User
                 </a>
-                @endcan
+{{--                @endcan--}}
                 <a class="nav-link" href="{{route('pdf.index')}}">
                     <div class="sb-nav-link-icon"><i class="fal fa-tasks"></i></div>
                     Manage Pdf  </a>
