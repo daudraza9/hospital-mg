@@ -5,8 +5,12 @@
     "keywords": ["framework", "laravel"],
     "license": "MIT",
     "require": {
+<<<<<<< HEAD
         "php": "^7.4|^8.0",
         "andreaselia/laravel-api-to-postman": "^1.8",
+=======
+        "php": "^7.3",
+>>>>>>> origin/main
         "barryvdh/laravel-snappy": "^0.4.8",
         "fruitcake/laravel-cors": "^2.0",
         "guzzlehttp/guzzle": "^7.0.1",
