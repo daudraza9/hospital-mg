@@ -15,10 +15,10 @@ class LoadPermissions extends Migration
     public function up()
     {
         //
-        foreach (permissions as $key => $permission)
-        {
-            Permission::create(['name'=>$permission]);
-        }
+//        foreach (permissions as $key => $permission)
+//        {
+//            Permission::create(['name'=>$permission]);
+//        }
     }
 
     /**
