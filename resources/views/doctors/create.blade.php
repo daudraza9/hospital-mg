@@ -101,7 +101,6 @@
                 status = validates(this, status);
             });
             if (status === true) {
-
                 $.ajax({
                     type: 'POST',
                     url: $('#create_doctor').attr('action'),

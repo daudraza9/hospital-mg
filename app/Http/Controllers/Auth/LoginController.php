@@ -72,12 +72,10 @@ class LoginController extends Controller
 
     public function logout(Request $request)
     {
-
         $this->guard()->logout();
         $request->session()->flush();
         $request->session()->regenerate();
         return redirect('/index');
-
     }
 
     public function redirectToProvider()
@@ -100,7 +98,6 @@ class LoginController extends Controller
         ]);
 
         \Auth::login($user,true);
-
         return redirect($this->redirectTo);
     }
 

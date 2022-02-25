@@ -16,7 +16,7 @@ use Yajra\DataTables\Facades\DataTables;
 use function GuzzleHttp\Promise\all;
 use App\Rules\UpperCaseRule;
 
-class DoctorController extends Controller
+class   DoctorController extends Controller
 {
     //
     public function index()
@@ -39,7 +39,6 @@ class DoctorController extends Controller
 
     public function datatable(Request $request)
     {
-
         $params = ['keyword' => $request->keyword,];
         $doctor = Doctor::select('*');
 
@@ -55,14 +54,12 @@ class DoctorController extends Controller
             return datatables()->of($doctor->orderBy('doctors.id', 'asc')->get())->addColumn('name', function ($data) {
                     return $data->first_name . ' ' . $data->last_name;
                 })->addColumn('action', function ($data) {
-
                     $button = '<div style="width: 422px;"><a href="' . route('doctor.edit', $data->id) . '" class="d-inline-block"> <button type="button" name="edit"   class="edit mr-1 btn btn-primary btn-sm text-right">Edit</button></a>';
                     $button .= '&nbsp;&nbsp;';
                     $button .= '<a href="#" onclick="delete_doctor(' . $data->id . ')"  class="d-inline-block"><button type="button" name="delete"  class="delete  mr-1  btn btn-danger btn-sm text-right ">Delete</button></a>';
                     $button .= '<a href="#" onclick="appointment(' . $data->id . ')"  class="d-inline-block"><button type="button" name="delete"  class="delete  mr-1  btn btn-danger btn-sm text-right ">Appointment</button></a>';
                     $button .= '<a href="' . route('doctor.patient.index', ['id' => $data->id]) . '" class="d-inline-block"><button type="button" name="delete" class="delete btn btn-dark btn-sm text-right ">Add Patient</button></a></div>';
                     return $button;
-
                 })->rawColumns(['action'])->make(true);
         }
 

@@ -59,4 +59,4 @@
         </div>
     </nav>
 </div>
-<?php /**PATH D:\Projects\HospitalManagement\resources\views/layouts/sidebar.blade.php ENDPATH**/ ?>
+<?php /**PATH F:\Projects\HospitalManagement\resources\views/layouts/sidebar.blade.php ENDPATH**/ ?>

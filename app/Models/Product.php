@@ -12,7 +12,7 @@ class Product extends Model implements HasMedia
     use HasFactory,InteractsWithMedia;
 
     protected $fillable=[
-      'name',
+        'name',
         'discription',
         'price',
         'image'

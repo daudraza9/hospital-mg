@@ -1,5 +1,4 @@
-@extends('layouts.master')
-@section('content')
+<?php $__env->startSection('content'); ?>
 
     <div id="layoutSidenav_content">
 
@@ -8,19 +7,19 @@
             <div class="container-fluid px-1 py-5 mx-auto">
                 <div class="row d-flex justify-content-center">
                     <div class="col-xl-7 col-lg-8 col-md-9 col-11 text-center">
-                        <h3>@if(isset($department)) Update @else Add @endif Department</h3>
+                        <h3><?php if(isset($department)): ?> Update <?php else: ?> Add <?php endif; ?> Department</h3>
                         <div class="card" id="form-style">
-                            <p class="blue-text">Please @if(isset($department)) Update @else add @endif Department<br>
+                            <p class="blue-text">Please <?php if(isset($department)): ?> Update <?php else: ?> add <?php endif; ?> Department<br>
                             <form enctype="multipart/form-data" class="form-card" id="department-form"
-                                  @if(isset($doctor)) action="{{route('doctor.update',['id'=>$doctor->id])}}"
-                                  @else action="{{route('department.store')}}" @endif method="post">
-                                @csrf
+                                  <?php if(isset($doctor)): ?> action="<?php echo e(route('doctor.update',['id'=>$doctor->id])); ?>"
+                                  <?php else: ?> action="<?php echo e(route('department.store')); ?>" <?php endif; ?> method="post">
+                                <?php echo csrf_field(); ?>
                                 <div class="row justify-content-between text-left">
                                     <div class="form-group col-sm-6 flex-column d-flex">
                                         <label class="form-control-label px-3">Name</label>
                                         <input type="text" id="name" name="name"
                                                placeholder="Enter Department name" data-field-name="Department-name"
-                                               @if(isset($department)) value="{{$department->name}}" @endif
+                                               <?php if(isset($department)): ?> value="<?php echo e($department->name); ?>" <?php endif; ?>
                                                required onkeyup="validates(this)">
                                         <span class="text-danger error-text"></span>
                                     </div>
@@ -28,7 +27,7 @@
                                         <label class="form-control-label px-3">Location </label>
                                         <input type="text" id="location" name="location"
                                                placeholder="Enter Location" data-field-name="Location"
-                                               @if(isset($department)) value="{{$department->location}}" @endif
+                                               <?php if(isset($department)): ?> value="<?php echo e($department->location); ?>" <?php endif; ?>
                                                required >
                                         <span class="text-danger error-text"></span></div>
                                 </div>
@@ -48,8 +47,8 @@
         </div>
     </div>
 
-@endsection
-@push('scripts')
+<?php $__env->stopSection(); ?>
+<?php $__env->startPush('scripts'); ?>
     <script>
 
         function saveDepartment(form_id) {
@@ -67,7 +66,7 @@
                     data: new FormData($('#department-form')[0]),
                     success: function (response) {
                         if (response.success) {
-                            window.location = '{{route('department.index')}}';
+                            window.location = '<?php echo e(route('department.index')); ?>';
                         } else {
                             if (response.success === NULL) {
                                 printErrorMsg(['Something Went Wrong, please Reload or try Again Later!']);
@@ -109,4 +108,6 @@
             return status;
         }
     </script>
-@endpush
+<?php $__env->stopPush(); ?>
+
+<?php echo $__env->make('layouts.master', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH F:\Projects\HospitalManagement\resources\views/department/create.blade.php ENDPATH**/ ?>
